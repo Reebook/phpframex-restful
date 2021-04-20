@@ -6,7 +6,7 @@
   class ProfessorController extends Controller {
 
     public function index() {  
-      return view('professor/index',
+      return view('Professor/index',
        ['professors'=>Professor::all(),
         'title'=>'Professors List']);
     }

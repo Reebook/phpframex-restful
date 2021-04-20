@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../views/css/styles.css">
     <title>Libros</title>
 </head>
 <body>
@@ -33,7 +33,7 @@
             <td>976</td>
             <td>Abraham Silberschatz</td>
             <td>John Wiley & Sons</td>
-            <td><a href="libro1">ver</a></td>
+            <td><a href="books/1">ver</a></td>
         </tr>
         <tr>
             <td>2</td>
@@ -44,7 +44,7 @@
             <td>1376</td>
             <td>Abraham Silberschatz</td>
             <td>John Wiley & Sons</td>
-            <td><a href="libro2">ver</a></td>
+            <td><a href="books/2">ver</a></td>
         </tr>
         <tr>
             <td>3</td>
@@ -55,7 +55,7 @@
             <td>960</td>
             <td>Andrew S. Tanenbaum</td>
             <td>Pearson Education</td>
-            <td><a href="libro3">ver</a></td>
+            <td><a href="books/3">ver</a></td>
         </tr>
         <tr>
             <td>4</td>
@@ -66,7 +66,7 @@
             <td>1136</td>
             <td>Andrew S. Tanenbaum</td>
             <td>Pearson Education</td>
-            <td><a href="libro4">ver</a></td>
+            <td><a href="books/4">ver</a></td>
         </tr>
     </tbody>
 </table>
