@@ -76,6 +76,7 @@ tbody tr:nth-child(odd) {
 }
 .wrapper{
   margin: 20px auto;
+  margin-left: 40px;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

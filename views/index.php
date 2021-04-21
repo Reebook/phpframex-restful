@@ -9,10 +9,26 @@
 </head>
 <body>
 <div class="main">
-    <h2>Tarea 1</h2>
-    <a href="booksOld">Acceder a los Libros</a>
-    <h2>Tarea 2</h2>
-    <a href="books">Acceder a los Libros</a>
+    <div class="row">
+    <h3>Está página mostrará el enlace de la lista de tareas realizadas en el curso de programación web.</h3>
+    <br>
+    <div class="row">
+        <ul>
+            <li> <h2><a href="booksOld"> Tarea 1</a></h2></li>               
+            <br> 
+            <li><h2><a href="books">Tarea 2</a></h2>
+            
+                <ul style="margin-left:45px; margin-top:15px;">
+                    <li> <a href="views/images/tarea2/diagrama.jpg">Diagrama </a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+  
+  
+  
+</div>
 </div>
 </body>
 </html>

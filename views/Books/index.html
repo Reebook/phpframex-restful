@@ -24,13 +24,17 @@
      <br>
      <table><thead>
       <tr><th>title</th><th>copyright</th>
-          <th>edition</th><th>pages</th></tr>
+          <th>edition</th><th>pages</th>
+          <th>language</th><th>publisher</th></tr>
       </thead><tbody>
       {{#books}}
       <tr><td><a href="books/{{id}}">{{title}}</a></td>
       <td>{{copyright}}</td>
       <td>{{edition}}</td>
-      <td>{{pages}}</td></tr>
+      <td>{{pages}}</td>
+      <td>{{language}}</td>
+      <td>{{publisher}}</td>
+    </tr>
       {{/books}}</tbody>
      </table>
     </div>

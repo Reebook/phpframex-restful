@@ -15,18 +15,27 @@
           <li><a href="/publishers">publishers</a></li>      
         </ul> 
     </nav>
-    
+
     <div class="wrapper">
         <div class="card">            
             <div class="container">
                 {{#book}}
-            <h3><b>{{title}}</b></h3>
-            <p>{{copyright}}</p>
-            <p>{{edition}}</p>
-            <p>{{pages}}</p>
+            <h3>Title <b>{{title}}</b></h3>
+            <br>
+            <p><b>Copyright</b> {{copyright}}</p>
+            <br>
+            <p><b>Edition</b> {{edition}}</p>
+            <br>
+            <p><b>Pages</b> {{pages}}</p>
+            <br>
+            <p><b>Language</b> {{language}}</p>
+            <br>
+            <p><b>publisher</b> {{publisher}}</p>
             {{/book}}
             </div>
         </div> 
+        <br>
+        <a href="/books">Regresar</a>
     </div>
 </body>
 </html>
