@@ -15,7 +15,7 @@
         $book = Book::find($id);
         return view('Books/show',
           ['book'=>$book,
-           'title'=>'Professor Detail']);
+           'title'=>'Books Detail']);
       }
   }
 ?>

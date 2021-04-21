@@ -2,7 +2,7 @@
 
 Cree un sitio web en PHPFramex que permita mostrar la información relacionada a libros, autores y editoriales. Para ello debe crear un controlador para cada una de las entidades, tal como se muestra en el material del curso, que cuenten con los datos incrustados (quemados) en un arreglo. Escriba cada vista utilizando *Mustache* e incluya enlaces entre los elementos de forma que se pueda navegar entre los libros, los autores y las editoriales asociadas.
 
-![](books.svg)
+![](booksimage.svg)
 
 Realice un diagrama similar al presentado en el material para mostrar la relación entre todos los controladores y las vistas.
 
