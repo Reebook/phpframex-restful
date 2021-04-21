@@ -16,7 +16,7 @@
         <ul>
             <li> <h2><a href="booksOld"> Tarea 1</a></h2></li>               
             <br> 
-            <li><h2><a href="books">Tarea 2</a></h2>
+            <li><h2><a href="publisher">Tarea 2</a></h2>
             
                 <ul style="margin-left:45px; margin-top:15px;">
                     <li> <a href="views/images/tarea2/diagrama.jpg">Diagrama </a></li>
