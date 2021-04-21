@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- file: views/professor/index.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../views/css/styles.css">
+</head>
+<body>
+
+ <div class="main">
+  <nav>
+    <ul>
+      <li><a href="/books">Books</a></li>
+      <li><a href="/authors">Authors</a></li>
+      <li><a href="/publishers">publishers</a></li>      
+    </ul> 
+   </nav>
+  <div class="row">
+   <div class="eleven column">
+     <h2>{{title}}</h2>
+     <br>
+     <table><thead>
+      <tr><th>title</th><th>copyright</th>
+          <th>edition</th><th>pages</th></tr>
+      </thead><tbody>
+      {{#books}}
+      <tr><td><a href="books/{{id}}">{{title}}</a></td>
+      <td>{{copyright}}</td>
+      <td>{{edition}}</td>
+      <td>{{pages}}</td></tr>
+      {{/books}}</tbody>
+     </table>
+    </div>
+   </div>
+ </div>
+</body>

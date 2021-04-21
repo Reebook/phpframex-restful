@@ -10,6 +10,8 @@
 <body>
 <div class="main">
     <h2>Tarea 1</h2>
+    <a href="booksOld">Acceder a los Libros</a>
+    <h2>Tarea 2</h2>
     <a href="books">Acceder a los Libros</a>
 </div>
 </body>

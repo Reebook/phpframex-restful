@@ -1,3 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+nav {
+  width: 100%;
+  overflow: auto; 
+  background-color: #dddddd;
+  margin: 0 auto;
+  padding: 0;
+  font-weight: bold;
+}
+nav ul {
+ display: block;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  display: inline;
+  float: left;
+  padding: 10px;
+}
+
+nav a {
+  list-style-type: none;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  text-transform: uppercase;
+ 
+}
+
+nav ul li:hover {
+  background: rgba(19, 20, 123, 0.67);
+  color: white;
+}
+
+nav a:hover {  
+  color: white;
+}
+
+.row{
+  float: left;
+  margin: 30px;
+}
+
 table{    
     border-collapse: collapse;
   }
@@ -14,6 +62,7 @@ table{
     border-color: inherit;
     background-color: coral;
     font-weight: bold;
+    text-transform: uppercase;
     text-align: center;
 }
 
@@ -22,11 +71,11 @@ tbody tr:nth-child(odd) {
   }
 
 .main{
-    margin: 20px;
+    margin: 0 auto;
     
 }
 .wrapper{
-  margin: 0 auto;
+  margin: 20px auto;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -43,3 +92,4 @@ tbody tr:nth-child(odd) {
 .container {
   padding: 2px 16px;
 }
+

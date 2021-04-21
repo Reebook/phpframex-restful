@@ -33,7 +33,7 @@
             <td>976</td>
             <td>Abraham Silberschatz</td>
             <td>John Wiley & Sons</td>
-            <td><a href="books/1">ver</a></td>
+            <td><a href="booksOld/1">ver</a></td>
         </tr>
         <tr>
             <td>2</td>
@@ -44,7 +44,7 @@
             <td>1376</td>
             <td>Abraham Silberschatz</td>
             <td>John Wiley & Sons</td>
-            <td><a href="books/2">ver</a></td>
+            <td><a href="booksOld/2">ver</a></td>
         </tr>
         <tr>
             <td>3</td>
@@ -55,7 +55,7 @@
             <td>960</td>
             <td>Andrew S. Tanenbaum</td>
             <td>Pearson Education</td>
-            <td><a href="books/3">ver</a></td>
+            <td><a href="booksOld/3">ver</a></td>
         </tr>
         <tr>
             <td>4</td>
@@ -66,7 +66,7 @@
             <td>1136</td>
             <td>Andrew S. Tanenbaum</td>
             <td>Pearson Education</td>
-            <td><a href="books/4">ver</a></td>
+            <td><a href="booksOld/4">ver</a></td>
         </tr>
     </tbody>
 </table>

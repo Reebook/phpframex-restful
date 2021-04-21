@@ -6,23 +6,16 @@
   class BookController extends Controller {
 
     public function index() {  
-      return view('Books/index');
-    }
-
-    public function show($id) {
-      switch($id){
-        case 1:
-          return view('Books/libro1');        
-        case 2:
-          return view('Books/libro2');        
-        case 3:
-          return view('Books/libro2');
-        case 4:
-          return view('Books/libro2');
-
+        return view('books/index',
+         ['books'=>Book::all(),
+          'title'=>'Books List']);
       }
-
-      return view('books/show');
-    }
+  
+      public function show($id) {
+        $book = Book::find($id);
+        return view('Books/show',
+          ['book'=>$book,
+           'title'=>'Professor Detail']);
+      }
   }
 ?>
