@@ -1,41 +1,69 @@
 <!DOCTYPE html>
+<!-- file: views/professor/show.html -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../views/css/styles.css">
-    <title>{{title}}</title>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
-    <nav>
-        <ul>
-          <li><a href="/books">Books</a></li>
-          <li><a href="/authors">Authors</a></li>
-          <li><a href="/publishers">publishers</a></li>      
-        </ul> 
-    </nav>
-
-    <div class="wrapper">
-        <div class="card">            
-            <div class="container">
-                {{#book}}
-            <h3>Title <b>{{title}}</b></h3>
-            <br>
-            <p><b>Copyright</b> {{copyright}}</p>
-            <br>
-            <p><b>Edition</b> {{edition}}</p>
-            <br>
-            <p><b>Pages</b> {{pages}}</p>
-            <br>
-            <p><b>Language</b> {{language}}</p>
-            <br>
-            <p><b>publisher</b> {{publisher}}</p>
-            {{/book}}
-            </div>
-        </div> 
-        <br>
-        <a href="/books">Regresar</a>
-    </div>
+ <div class="container">
+  <div class="row">
+   <div class="eleven column">
+    <h2>{{title}}</h2>
+     {{#books}}
+     {{#show}}<form>{{/show}}
+     {{#create}}<form action="/books" method="POST">{{/create}}
+     {{#edit}}<form action="/books/{{id}}" method="POST">
+        <input type="hidden" name="_method" value="PUT"/>{{/edit}}
+     <div class="row">
+      <div class="six columns">
+       <label for="nameInput">Title</label>
+       <input class="u-full-width" type="text" 
+         {{#show}} readonly {{/show}}
+          name="title" value="{{title}}"/>
+      </div>
+      <div class="six columns">
+       <label for="degreeInput">Edition</label>
+       <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          name="edition" value="{{edition}}"/>
+      </div>
+     </div>
+     <div class="row">
+      <div class="six columns">
+       <label for="copyright">copyright</label>
+       <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          name="copyright" value="{{copyright}}"/>
+      </div>
+      <div class="six columns">
+       <label for="language">language</label>
+       <input class="u-full-width" type="text"
+         {{#show}} readonly {{/show}}
+         name="language" value="{{language}}"/>
+      </div>
+      <div class="six columns">
+        <label for="phoneInput">pages</label>
+        <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          name="pages" value="{{pages}}"/>
+       </div>
+       <div class="six columns">
+        <label for="phoneInput">author</label>
+        <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          name="author" value="{{author}}"/>
+       </div>
+      <a class="button button-primary" href="/books">Back</a>
+     {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update"/>{{/edit}}
+     {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create"/>{{/create}}
+     {{/books}}
+    </form>
+   </div>
+  </div>
+ </div>
 </body>
 </html>
