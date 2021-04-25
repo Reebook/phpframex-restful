@@ -1,7 +1,7 @@
 <?php
   // file: controllers/ProfessorController.php
 
-  require_once('models/Professor.php');
+  require_once('models/professor.php');
 
   class ProfessorController extends Controller {
 
