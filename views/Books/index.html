@@ -25,16 +25,18 @@
      <table><thead>
       <tr><th>title</th><th>copyright</th>
           <th>edition</th><th>pages</th>
-          <th>language</th><th>publisher</th>
+          <th>language</th><th>author</th>
+          <th>publisher</th>
           <th>Actions</th>
         </tr>
       </thead><tbody>
       {{#books}}
-      <tr><td><a href="books/{{id}}">{{title}}</a></td>
+      <tr><td><a href="books/{{id}}">{{titleName}}</a></td>
       <td>{{copyright}}</td>
       <td>{{edition}}</td>
-      <td>{{pages}}</td>
+      <td>{{pages}}</td>      
       <td>{{language}}</td>
+      <td>{{author}}</td>
       <td>{{publisher}}</td>
       <td>
         <a class="button" href="books/{{id}}">Show</a>

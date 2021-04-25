@@ -13,7 +13,7 @@
   <div class="row">
    <div class="eleven column">
     <h2>{{title}}</h2>
-     {{#books}}
+     {{#book}}
      {{#show}}<form>{{/show}}
      {{#create}}<form action="/books" method="POST">{{/create}}
      {{#edit}}<form action="/books/{{id}}" method="POST">
@@ -23,7 +23,7 @@
        <label for="nameInput">Title</label>
        <input class="u-full-width" type="text" 
          {{#show}} readonly {{/show}}
-          name="title" value="{{title}}"/>
+          name="titleName" value="{{titleName}}"/>
       </div>
       <div class="six columns">
        <label for="degreeInput">Edition</label>
@@ -52,6 +52,12 @@
           name="pages" value="{{pages}}"/>
        </div>
        <div class="six columns">
+        <label for="publisher">publisher</label>
+        <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          name="publisher" value="{{publisher}}"/>
+       </div>
+       <div class="six columns">
         <label for="phoneInput">author</label>
         <input class="u-full-width" type="text"
           {{#show}} readonly {{/show}}
@@ -60,7 +66,7 @@
       <a class="button button-primary" href="/books">Back</a>
      {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update"/>{{/edit}}
      {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create"/>{{/create}}
-     {{/books}}
+     {{/book}}
     </form>
    </div>
   </div>

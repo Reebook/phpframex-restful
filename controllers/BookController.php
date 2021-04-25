@@ -13,7 +13,7 @@
   
     public function show($prof_id) {
       $prof = DB::table('book')->find($prof_id);
-      return view('books/show',
+      return view('Books/show',
         ['book'=>$prof,
          'title'=>'book Detail',
          'show'=>true,'create'=>false,'edit'=>false]);
@@ -22,47 +22,51 @@
     public function create() {
       $prof = ['name'=>'','degree'=>'',
                'email'=>'','phone'=>''];
-    return view('books/show',
+    return view('Books/show',
       ['title'=>'book Create',
       'book'=>$prof,'courses'=>false,
       'show'=>false,'create'=>true,'edit'=>false]);
   } 
 
     public function store() {
-      $title = Input::get('title');
+      $title = Input::get('titleName');
       $copyright = Input::get('copyright');
       $edition = Input::get('edition');
       $language = Input::get('language');
       $publisher = Input::get('publisher');
       $pages = Input::get('pages');
-      $item = ['title'=>$name,'copyright'=>$degree,
-               'edition'=>$email,'language'=>$phone,'publisher'=>$publisher,'pages'=>$pages];
+      $author = Input::get('author');
+      $item = ['title'=>$name,'copyright'=>$copyright,
+      'edition'=>$edition,'language'=>$language,'publisher'=>$publisher,'pages'=>$pages,'author'=>$author];
       book::create($item);
-      return redirect('books');
+      return redirect('Books/index');
     }  
 
     public function edit($prof_id) {
       $prof = DB::table('book')->find($prof_id);
-      return view('books/show',
+      return view('Books/show',
         ['book'=>$prof,
          'title'=>'book Edit','courses'=>false,
          'show'=>false,'create'=>false,'edit'=>true]);
     }
 
     public function update($_,$prof_id) {
-      $name = Input::get('name');
-      $degree = Input::get('degree');
-      $email = Input::get('email');
-      $phone = Input::get('phone');
-      $prof = ['name'=>$name,'degree'=>$degree,
-               'email'=>$email,'phone'=>$phone];
-      DB::table('book')->update($prof_id,$prof);
-      return redirect('/books');
+      $title = Input::get('titleName');
+      $copyright = Input::get('copyright');
+      $edition = Input::get('edition');
+      $language = Input::get('language');
+      $publisher = Input::get('publisher');
+      $pages = Input::get('pages');
+      $author = Input::get('author');
+      $item = ['titleName'=>$title,'copyright'=>$copyright,
+               'edition'=>$edition,'language'=>$language,'publisher'=>$publisher,'pages'=>$pages,'author'=>$author];
+      DB::table('book')->update($prof_id,$item);
+      return redirect('Books/index');
     }
 
     public function destroy($prof_id) {  
       DB::table('book')->destroy($prof_id);
-      return redirect('/books');
+      return redirect('Books/index');
     }
   }
 ?>
