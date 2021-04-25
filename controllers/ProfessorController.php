@@ -10,18 +10,22 @@
       ['professors'=>DB::table('professor')->get(),
       'title'=>'Professors List']);
     }
-
-    public function show($id) {
-      $prof = Professor::find($id);
+    public function show($prof_id) {
+      $prof = DB::table('professor')->find($prof_id);
       return view('professor/show',
         ['professor'=>$prof,
-         'title'=>'Professor Detail']);
+         'title'=>'Professor Detail',
+         'show'=>true,'create'=>false,'edit'=>false]);
     }
 
     public function create() {
-      return view('professor/create',
-        ['title'=>'Professor Create']);
-    }  
+      $prof = ['name'=>'','degree'=>'',
+               'email'=>'','phone'=>''];
+    return view('professor/details',
+      ['title'=>'Professor Create',
+      'professor'=>$prof,'courses'=>false,
+      'show'=>false,'create'=>true,'edit'=>false]);
+  } 
 
     public function store() {
       $name = Input::get('name');
@@ -34,26 +38,27 @@
       return redirect('/professor');
     }  
 
-    public function edit($id) {
-      $prof = Professor::find($id);
-      return view('professor/edit',
+    public function edit($prof_id) {
+      $prof = DB::table('professor')->find($prof_id);
+      return view('professor/show',
         ['professor'=>$prof,
-         'title'=>'Professor Edit']);
-    }  
+         'title'=>'Professor Edit','courses'=>false,
+         'show'=>false,'create'=>false,'edit'=>true]);
+    }
 
-    public function update($_,$id) {
+    public function update($_,$prof_id) {
       $name = Input::get('name');
       $degree = Input::get('degree');
       $email = Input::get('email');
       $phone = Input::get('phone');
-      $item = ['name'=>$name,'degree'=>$degree,
+      $prof = ['name'=>$name,'degree'=>$degree,
                'email'=>$email,'phone'=>$phone];
-      Professor::update($id,$item);
+      DB::table('professor')->update($prof_id,$prof);
       return redirect('/professor');
-    }  
+    }
 
-    public function destroy($id) {  
-      Professor::destroy($id);
+    public function destroy($prof_id) {  
+      DB::table('professor')->destroy($prof_id);
       return redirect('/professor');
     }
   }

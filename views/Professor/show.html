@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- file: views/professor/show.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+ <div class="container">
+  <div class="row">
+   <div class="eleven column">
+    <h2>{{title}}</h2>
+     {{#professor}}
+     {{#show}}<form>{{/show}}
+     {{#create}}<form action="/professor" method="POST">{{/create}}
+     {{#edit}}<form action="/professor/{{id}}" method="POST">
+        <input type="hidden" name="_method" value="PUT"/>{{/edit}}
+     <div class="row">
+      <div class="six columns">
+       <label for="nameInput">Name</label>
+       <input class="u-full-width" type="text" 
+         {{#show}} readonly {{/show}}
+          name="name" value="{{name}}"/>
+      </div>
+      <div class="six columns">
+       <label for="degreeInput">Degree</label>
+       <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          name="degree" value="{{degree}}"/>
+      </div>
+     </div>
+     <div class="row">
+      <div class="six columns">
+       <label for="emailInput">Email</label>
+       <input class="u-full-width" type="email"
+          {{#show}} readonly {{/show}}
+          name="email" value="{{email}}"/>
+      </div>
+      <div class="six columns">
+       <label for="phoneInput">Phone</label>
+       <input class="u-full-width" type="tel"
+         {{#show}} readonly {{/show}}
+         name="phone" value="{{phone}}"/>
+      </div>
+      <a class="button button-primary" href="/professor">Back</a>
+     {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update"/>{{/edit}}
+     {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create"/>{{/create}}
+     {{/professor}}
+    </form>
+   </div>
+  </div>
+ </div>
+</body>
+</html>
