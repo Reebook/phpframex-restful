@@ -15,15 +15,15 @@
       $prof = DB::table('book')->find($prof_id);
       return view('Books/show',
         ['book'=>$prof,
-         'title'=>'book Detail',
+         'title'=>'Book Detail',
          'show'=>true,'create'=>false,'edit'=>false]);
     }
 
     public function create() {
       $prof = ['name'=>'','degree'=>'',
                'email'=>'','phone'=>''];
-    return view('Books/show',
-      ['title'=>'book Create',
+      return view('Books/show',
+      ['title'=>'Book Create',
       'book'=>$prof,'courses'=>false,
       'show'=>false,'create'=>true,'edit'=>false]);
   } 
@@ -36,9 +36,9 @@
       $publisher = Input::get('publisher');
       $pages = Input::get('pages');
       $author = Input::get('author');
-      $item = ['title'=>$name,'copyright'=>$copyright,
+      $item = ['titleName'=>$title,'copyright'=>$copyright,
       'edition'=>$edition,'language'=>$language,'publisher'=>$publisher,'pages'=>$pages,'author'=>$author];
-      book::create($item);
+      book::create($item);  
       return redirect('Books/index');
     }  
 
@@ -46,7 +46,7 @@
       $prof = DB::table('book')->find($prof_id);
       return view('Books/show',
         ['book'=>$prof,
-         'title'=>'book Edit','courses'=>false,
+         'title'=>'Book Edit','courses'=>false,
          'show'=>false,'create'=>false,'edit'=>true]);
     }
 
@@ -61,11 +61,11 @@
       $item = ['titleName'=>$title,'copyright'=>$copyright,
                'edition'=>$edition,'language'=>$language,'publisher'=>$publisher,'pages'=>$pages,'author'=>$author];
       DB::table('book')->update($prof_id,$item);
-      return redirect('Books/index');
+      return redirect('Books');
     }
 
     public function destroy($prof_id) {  
-      DB::table('book')->destroy($prof_id);
+      DB::table('book')->delete($prof_id);
       return redirect('Books/index');
     }
   }

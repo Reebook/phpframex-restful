@@ -6,7 +6,11 @@
 <title>{{title}}</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../views/css/styles.css">
 
+{{#edit}}
+   <link rel="stylesheet" href="../../views/css/styles.css">
+{{/edit}}
 </head>
 <body>
  <div class="container">
@@ -19,20 +23,19 @@
      {{#edit}}<form action="/books/{{id}}" method="POST">
         <input type="hidden" name="_method" value="PUT"/>{{/edit}}
      <div class="row">
-      <div class="six columns">
+      
        <label for="nameInput">Title</label>
        <input class="u-full-width" type="text" 
          {{#show}} readonly {{/show}}
           name="titleName" value="{{titleName}}"/>
-      </div>
+      
       <div class="six columns">
        <label for="degreeInput">Edition</label>
        <input class="u-full-width" type="text"
           {{#show}} readonly {{/show}}
           name="edition" value="{{edition}}"/>
       </div>
-     </div>
-     <div class="row">
+    
       <div class="six columns">
        <label for="copyright">copyright</label>
        <input class="u-full-width" type="text"
@@ -64,11 +67,11 @@
           name="author" value="{{author}}"/>
        </div>
       <a class="button button-primary" href="/books">Back</a>
-     {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update"/>{{/edit}}
-     {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create"/>{{/create}}
+     {{#edit}}<input style="float: right" class="button" type="submit" value="Update"/>{{/edit}}
+     {{#create}}<input style="float: right" class="button" type="submit" value="Create"/>{{/create}}
      {{/book}}
     </form>
-   </div>
+
   </div>
  </div>
 </body>

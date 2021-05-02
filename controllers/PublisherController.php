@@ -7,15 +7,16 @@
 
     public function index() {  
       return view('Publisher/index',
-       ['publishers'=>Publisher::all(),
-        'title'=>'Publisher List']);
+      ['books'=>DB::table('publisher')->get(),
+      'title'=>'Publisher List']);
     }
 
-    public function show($id) {
-      $publisher = Publisher::find($id);
-      return view('Publisher/show',
-        ['publisher'=>$publisher,
-         'title'=>'Publisher Detail']);
+    public function show($prof_id) {
+      $prof = DB::table('publisher')->find($prof_id);
+      return view('publisher/show',
+        ['book'=>$prof,
+         'title'=>'Publisher Detail',
+         'show'=>true,'create'=>false,'edit'=>false]);
     }
   }
 ?>
