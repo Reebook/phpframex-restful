@@ -7,7 +7,7 @@
 
     public function index() {  
       return view('Publisher/index',
-      ['books'=>DB::table('publisher')->get(),
+      ['publishers'=>DB::table('publisher')->get(),
       'title'=>'Publisher List']);
     }
 

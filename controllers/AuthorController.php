@@ -1,19 +1,19 @@
 <?php
   // file: controllers/ProfessorController.php
 
-  require_once('Author.php');
+  require_once('models/author.php');
 
   class AuthorController extends Controller {
 
     public function index() {  
       return view('Author/index',
-      ['Author'=>DB::table('author')->get(),
+      ['author'=>DB::table('author')->get(),
       'title'=>'Author List']);
     }
 
     public function show($author_id) {
       $author = DB::table('author')->find($author_id);
-      return view('author/show',
+      return view('Author/show',
         ['author'=>$author,
          'title'=>'Author Detail',
          'show'=>true,'create'=>false,'edit'=>false]);

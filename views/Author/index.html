@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- file: views/professor/index.html -->
+<!-- file: views/books/index.html -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../views/css/styles.css">
 </head>
 <body>
+
  <div class="main">
   <nav>
     <ul>
@@ -23,17 +24,27 @@
      <br>
      <table><thead>
       <tr><th>name</th><th>nationality</th>
-          <th>birth</th><th>fields</th></tr>
+          <th>birth</th><th>fields</th>        
+          <th>Actions</th>
+        </tr>
       </thead><tbody>
-      {{#authors}}
-      <tr><td><a href="authors/{{id}}">{{name}}</a></td>
+      {{#author}}
+      <tr><td><a href="author/{{id}}">{{name}}</a></td>
       <td>{{nationality}}</td>
-      <td>{{birth}}</td>
-      <td>{{fields}}</td></tr>
-      {{/authors}}</tbody>
+      <td>{{birth}}</td>      
+      <td>{{fields}}</td>     
+      <td>
+        <a class="button-actions" href="author/{{id}}">Show</a>
+        <a class="button-actions" href="author/{{id}}/edit">Edit</a>
+        <a class="button-actions" href="author/{{id}}/delete">Erase</a>
+        </td>
+    </tr>
+      {{/author}}</tbody>
      </table>
+     <a class="button button-primary" href="/author/create">New</a>
     </div>
    </div>
  </div>
+ 
 </body>
 </html>
