@@ -1,7 +1,7 @@
 <?php
   // file: controllers/ProfessorController.php
 
-  require_once('model/publisher.php');
+  require_once('models/publisher.php');
 
   class PublisherController extends Controller {
 
@@ -13,8 +13,8 @@
 
     public function show($prof_id) {
       $prof = DB::table('publisher')->find($prof_id);
-      return view('publisher/show',
-        ['book'=>$prof,
+      return view('Publisher/show',
+        ['publishers'=>$prof,
          'title'=>'Publisher Detail',
          'show'=>true,'create'=>false,'edit'=>false]);
     }
@@ -24,7 +24,7 @@
                'founded'=>'','genere'=>''];
       return view('Publisher/show',
       ['title'=>'Publisher Create',
-      'book'=>$publisher,
+      'publishers'=>$publisher,
       'show'=>false,'create'=>true,'edit'=>false]);
     } 
 
@@ -40,9 +40,9 @@
     } 
 
     public function edit($publish_id) {
-      $publish = DB::table('Publisher')->find($publish_id);
+      $publish = DB::table('publisher')->find($publish_id);
       return view('Publisher/show',
-        ['publish'=>$publish,
+        ['publishers'=>$publish,
          'title'=>'Publish Edit',
          'show'=>false,'create'=>false,'edit'=>true]);
     }
@@ -60,8 +60,8 @@
     }
 
     public function destroy($prof_id) {  
-      DB::table('book')->delete($prof_id);
-      return redirect('Books/index');
+      DB::table('publisher')->delete($prof_id);
+      return redirect('Publisher/index');
     }
   }
 ?>

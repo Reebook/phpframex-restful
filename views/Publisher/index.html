@@ -23,15 +23,24 @@
      <br>
      <table><thead>
       <tr><th>name</th><th>country</th>
-          <th>founded</th><th>genere</th></tr>
+          <th>founded</th><th>genere</th>
+          <th>actions</th>
+        </tr>
       </thead><tbody>
       {{#publishers}}
       <tr><td><a href="publishers/{{id}}">{{name}}</a></td>
       <td>{{country}}</td>
       <td>{{founded}}</td>
-      <td>{{genere}}</td></tr>
+      <td>{{genere}}</td>
+      <td>
+        <a class="button-actions" href="publishers/{{id}}">Show</a>
+        <a class="button-actions" href="publishers/{{id}}/edit">Edit</a>
+        <a class="button-actions" href="publishers/{{id}}/delete">Erase</a>
+      </td>
+    </tr>
       {{/publishers}}</tbody>
      </table>
+     <a class="button button-primary" href="/publishers/create">New</a>
     </div>
    </div>
  </div>
