@@ -24,7 +24,7 @@
                'birth'=>'','fields'=>''];
       return view('Author/show',
       ['title'=>'Author Create',
-      'book'=>$author,
+      'author'=>$author,
       'show'=>false,'create'=>true,'edit'=>false]);
     } 
 
@@ -40,8 +40,8 @@
     } 
 
     public function edit($author_id) {
-      $author = DB::table('Author')->find($author_id);
-      return view('Author/show',
+      $author = DB::table('author')->find($author_id);
+      return view('Authors/show',
         ['author'=>$author,
          'title'=>'Author Edit',
          'show'=>false,'create'=>false,'edit'=>true]);

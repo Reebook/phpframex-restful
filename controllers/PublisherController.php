@@ -12,9 +12,9 @@
     }
 
     public function show($prof_id) {
-      $prof = DB::table('publisher')->find($prof_id);
+      $publisher = DB::table('publisher')->find($prof_id);
       return view('Publisher/show',
-        ['publishers'=>$prof,
+        ['publishers'=>$publisher,
          'title'=>'Publisher Detail',
          'show'=>true,'create'=>false,'edit'=>false]);
     }
@@ -36,12 +36,12 @@
       $item = ['name'=>$name,'country'=>$country,
                'founded'=>$founded,'genere'=>$genere];
       Publisher::create($item);
-      return redirect('/publisher');
+      return redirect('/publishers');
     } 
 
     public function edit($publish_id) {
       $publish = DB::table('publisher')->find($publish_id);
-      return view('Publisher/show',
+      return view('Publishers/show',
         ['publishers'=>$publish,
          'title'=>'Publish Edit',
          'show'=>false,'create'=>false,'edit'=>true]);

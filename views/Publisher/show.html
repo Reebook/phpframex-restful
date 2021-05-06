@@ -15,46 +15,50 @@
 <body>
  <div class="container">
   <div class="row">
-   <div class="eleven column">
+   
     <h2>{{title}}</h2>
      {{#publishers}}
      {{#show}}<form>{{/show}}
-     {{#create}}<form action="/Publisher" method="POST">{{/create}}
-     {{#edit}}<form action="/Publisher/{{id}}" method="POST">
+     {{#create}}<form action="/publishers" method="POST">{{/create}}
+     {{#edit}}
+     <form action="/publishers/{{id}}" method="POST">
         <input type="hidden" name="_method" value="PUT"/>{{/edit}}
      <div class="row">
-      
-       <label for="nameInput">Title</label>
+         
+      <div class="six columns">
+       <label for="name">Name</label>
        <input class="u-full-width" type="text" 
          {{#show}} readonly {{/show}}
-          name="titleName" value="{{name}}"/>
-      
+          name="name" value="{{name}}"/>
+      </div>
       <div class="six columns">
-       <label for="degreeInput">country</label>
+       <label for="country">Country</label>
        <input class="u-full-width" type="text"
           {{#show}} readonly {{/show}}
           name="country" value="{{country}}"/>
       </div>
     
       <div class="six columns">
-       <label for="founded">founded</label>
+       <label for="founded">Founded</label>
        <input class="u-full-width" type="text"
           {{#show}} readonly {{/show}}
           name="founded" value="{{founded}}"/>
       </div>
       <div class="six columns">
-       <label for="genere">genere</label>
+       <label for="genere">Genere</label>
        <input class="u-full-width" type="text"
          {{#show}} readonly {{/show}}
          name="genere" value="{{genere}}"/>
       </div>
-      
+     
       <a class="button button-primary" href="/publishers">Back</a>
      {{#edit}}<input style="float: right" class="button" type="submit" value="Update"/>{{/edit}}
      {{#create}}<input style="float: right" class="button" type="submit" value="Create"/>{{/create}}
+   </form>   
      {{/publishers}}
-    </form>
-
+   
+   
+  </div>
   </div>
  </div>
 </body>

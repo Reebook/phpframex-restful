@@ -15,8 +15,8 @@
     <h2>{{title}}</h2>
      {{#professor}}
      {{#show}}<form>{{/show}}
-     {{#create}}<form action="/professor" method="POST">{{/create}}
-     {{#edit}}<form action="/professor/{{id}}" method="POST">
+     {{#create}}<form action="/authors" method="POST">{{/create}}
+     {{#edit}}<form action="/authors/{{id}}" method="POST">
         <input type="hidden" name="_method" value="PUT"/>{{/edit}}
      <div class="row">
       <div class="six columns">
@@ -26,26 +26,26 @@
           name="name" value="{{name}}"/>
       </div>
       <div class="six columns">
-       <label for="degreeInput">Degree</label>
+       <label for="nationaltyInput">nationalty</label>
        <input class="u-full-width" type="text"
           {{#show}} readonly {{/show}}
-          name="degree" value="{{degree}}"/>
+          name="nationalty" value="{{nationalty}}"/>
       </div>
      </div>
      <div class="row">
       <div class="six columns">
-       <label for="emailInput">Email</label>
-       <input class="u-full-width" type="email"
+       <label for="emailInput">birth</label>
+       <input class="u-full-width" type="birth"
           {{#show}} readonly {{/show}}
-          name="email" value="{{email}}"/>
+          name="birth" value="{{birth}}"/>
       </div>
       <div class="six columns">
-       <label for="phoneInput">Phone</label>
+       <label for="fieldsInput">fields</label>
        <input class="u-full-width" type="tel"
          {{#show}} readonly {{/show}}
-         name="phone" value="{{phone}}"/>
+         name="fields" value="{{fields}}"/>
       </div>
-      <a class="button button-primary" href="/professor">Back</a>
+      <a class="button button-primary" href="/authors">Back</a>
      {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update"/>{{/edit}}
      {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create"/>{{/create}}
      {{/professor}}

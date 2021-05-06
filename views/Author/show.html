@@ -1,34 +1,61 @@
 <!DOCTYPE html>
+<!-- file: views/professor/show.html -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../views/css/styles.css">
-    <title>{{title}}</title>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../views/css/styles.css">
+
+{{#edit}}
+   <link rel="stylesheet" href="../../views/css/styles.css">
+{{/edit}}
 </head>
 <body>
-    <nav>
-        <ul>
-          <li><a href="/books">Books</a></li>
-          <li><a href="/authors">Authors</a></li>
-          <li><a href="/publishers">publishers</a></li>      
-        </ul> 
-       </nav>
-    <div class="wrapper">
-        <div class="card">            
-            <div class="container">
-                {{#author}}
-            <h3><b>{{name}}</b></h3>
-            <p>{{nationality}}</p>
-            <p>{{birth}}</p>
-            <p>{{fields}}</p>
-            {{/author}}
-            </div>
-        </div> 
-        <br>
-        <a href="/authors">Regresar</a>
-    </div>
-
+ <div class="container">
+  <div class="row">
+   <div class="eleven column">
+    <h2>{{title}}</h2>
+     {{#author}}
+     {{#show}}<form>{{/show}}
+     {{#create}}<form action="/authors" method="POST">{{/create}}
+     {{#edit}}<form action="/authors/{{id}}" method="POST">
+        <input type="hidden" name="_method" value="PUT"/>{{/edit}}
+     <div class="row">
+      <div class="six columns">
+       <label for="nameInput">Name</label>
+       <input class="u-full-width" type="text" 
+         {{#show}} readonly {{/show}}
+          name="name" value="{{name}}"/>
+      </div>
+      <div class="six columns">
+       <label for="degreeInput">nationality</label>
+       <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          name="nationality" value="{{nationality}}"/>
+      </div>
+     </div>
+     <div class="row">
+      <div class="six columns">
+       <label for="emailInput">Birth</label>
+       <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          name="birth" value="{{birth}}"/>
+      </div>
+      <div class="six columns">
+       <label for="fields">fields</label>
+       <input class="u-full-width" type="text"
+         {{#show}} readonly {{/show}}
+         name="fields" value="{{fields}}"/>
+      </div>
+      <a class="button button-primary" href="/authors">Back</a>
+     {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update"/>{{/edit}}
+     {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create"/>{{/create}}
+     {{/author}}
+    </form>
+   </div>
+  </div>
+ </div>
 </body>
 </html>
