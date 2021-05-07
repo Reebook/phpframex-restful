@@ -21,6 +21,7 @@
     }
 
     public function create() {
+      if (!Auth::check()) return redirect('/login');
       $prof = ['titleName'=>'','copyright'=>'',
                'edition'=>'','language'=>'','publisher'=>'','pages'=>'','author'=>''];
       return view('Books/show',
@@ -30,6 +31,7 @@
   } 
 
     public function store() {
+      if (!Auth::check()) return redirect('/login');
       $title = Input::get('titleName');
       $copyright = Input::get('copyright');
       $edition = Input::get('edition');
@@ -44,6 +46,7 @@
     }  
 
     public function edit($prof_id) {
+      if (!Auth::check()) return redirect('/login');
       $prof = DB::table('book')->find($prof_id);
       return view('Books/show',
         ['book'=>$prof,
@@ -53,6 +56,7 @@
     }
 
     public function update($_,$prof_id) {
+      if (!Auth::check()) return redirect('/login');
       $title = Input::get('titleName');
       $copyright = Input::get('copyright');
       $edition = Input::get('edition');
@@ -67,6 +71,7 @@
     }
 
     public function destroy($prof_id) {  
+      if (!Auth::check()) return redirect('/login');
       DB::table('book')->delete($prof_id);
       return redirect('Books/index');
     }

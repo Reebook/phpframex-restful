@@ -21,6 +21,7 @@
     }
 
     public function create() {
+      if (!Auth::check()) return redirect('/login');
       $author = ['name'=>'','nationality'=>'',
                'birth'=>'','fields'=>''];
       return view('Author/show',
@@ -31,6 +32,7 @@
     } 
 
     public function store() {
+      if (!Auth::check()) return redirect('/login');
       $name = Input::get('name');
       $nationality = Input::get('nationality');
       $birth = Input::get('birth');
@@ -42,6 +44,7 @@
     } 
 
     public function edit($author_id) {
+      if (!Auth::check()) return redirect('/login');
       $author = DB::table('author')->find($author_id);
       return view('Author/show',
         ['author'=>$author,
@@ -51,6 +54,7 @@
     }
 
     public function update($_,$author_id) {
+      if (!Auth::check()) return redirect('/login');
       $name = Input::get('name');    
       $nationality = Input::get('nationality');
       $birth = Input::get('birth');
@@ -63,6 +67,7 @@
     }
 
     public function destroy($author_id) {  
+      if (!Auth::check()) return redirect('/login');
       DB::table('author')->delete($author_id);
       return redirect('author/index');
     }

@@ -20,6 +20,7 @@
     }
 
     public function create() {
+      if (!Auth::check()) return redirect('/login');
       $publisher = ['name'=>'','country'=>'',
                'founded'=>'','genere'=>''];
       return view('Publisher/show',
@@ -29,6 +30,7 @@
     } 
 
     public function store() {
+      if (!Auth::check()) return redirect('/login');
       $name = Input::get('name');
       $country = Input::get('country');
       $founded = Input::get('founded');
@@ -40,6 +42,7 @@
     } 
 
     public function edit($publish_id) {
+      if (!Auth::check()) return redirect('/login');
       $publish = DB::table('publisher')->find($publish_id);
       return view('Publisher/show',
         ['publishers'=>$publish,
@@ -48,6 +51,7 @@
     }
  
     public function update($_,$publish_id) {
+      if (!Auth::check()) return redirect('/login');
       $name = Input::get('name');    
       $country = Input::get('country');
       $founded = Input::get('founded');
@@ -59,7 +63,8 @@
       return redirect('/publishers');
     }
 
-    public function destroy($prof_id) {  
+    public function destroy($prof_id) {
+      if (!Auth::check()) return redirect('/login');  
       DB::table('publisher')->delete($prof_id);
       return redirect('Publishers/index');
     }
