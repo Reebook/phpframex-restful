@@ -5,19 +5,12 @@
 <meta charset="utf-8">
 <title>{{title}}</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../views/css/styles.css">
+{{> header}}  
 </head>
 <body>
 
  <div class="main">
-  <nav>
-    <ul>
-      <li><a href="/books">Books</a></li>
-      <li><a href="/authors">Authors</a></li>
-      <li><a href="/publishers">publishers</a></li>      
-    </ul> 
-   </nav>
+  {{> navbar}}  
   <div class="row">
    <div class="eleven column">
      <h2>{{title}}</h2>
@@ -40,13 +33,17 @@
       <td>{{publisher}}</td>
       <td>
         <a class="button-actions" href="books/{{id}}">Show</a>
+        {{#login}}
         <a class="button-actions" href="books/{{id}}/edit">Edit</a>
         <a class="button-actions" href="books/{{id}}/delete">Erase</a>
+        {{/login}}
       </td>
     </tr>
       {{/books}}</tbody>
      </table>
+     {{#login}}
      <a class="button button-primary" href="/books/create">New</a>
+     {{/login}}
     </div>
    </div>
  </div>

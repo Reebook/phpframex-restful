@@ -1,23 +1,15 @@
 <!DOCTYPE html>
-<!-- file: views/books/index.html -->
+<!-- file: views/author/index.html -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>{{title}}</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../views/css/styles.css">
+{{> header}}  
 </head>
 <body>
-
+  {{> navbar}}
  <div class="main">
-  <nav>
-    <ul>
-      <li><a href="/books">Books</a></li>
-      <li><a href="/authors">Authors</a></li>
-      <li><a href="/publishers">publishers</a></li>      
-    </ul> 
-   </nav>
+
   <div class="row">
    <div class="eleven column">
      <h2>{{title}}</h2>
@@ -35,13 +27,17 @@
       <td>{{fields}}</td>     
       <td>
         <a class="button-actions" href="authors/{{id}}">Show</a>
+        {{#login}}
         <a class="button-actions" href="authors/{{id}}/edit">Edit</a>
         <a class="button-actions" href="authors/{{id}}/delete">Erase</a>
+        {{/login}}
         </td>
     </tr>
       {{/author}}</tbody>
      </table>
-     <a class="button button-primary" href="/author/create">New</a>
+     {{#login}}
+     <a class="button button-primary" href="/authors/create">New</a>
+     {{/login}}
     </div>
    </div>
  </div>

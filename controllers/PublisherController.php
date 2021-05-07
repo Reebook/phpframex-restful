@@ -8,7 +8,7 @@
     public function index() {  
       return view('Publisher/index',
       ['publishers'=>DB::table('publisher')->get(),
-      'title'=>'Publisher List']);
+      'title'=>'Publisher List','login'=>Auth::check()]);
     }
 
     public function show($prof_id) {
@@ -16,7 +16,7 @@
       return view('Publisher/show',
         ['publishers'=>$publisher,
          'title'=>'Publisher Detail',
-         'show'=>true,'create'=>false,'edit'=>false]);
+         'show'=>true,'create'=>false,'edit'=>false,'login'=>Auth::check()]);
     }
 
     public function create() {
@@ -25,7 +25,7 @@
       return view('Publisher/show',
       ['title'=>'Publisher Create',
       'publishers'=>$publisher,
-      'show'=>false,'create'=>true,'edit'=>false]);
+      'show'=>false,'create'=>true,'edit'=>false,'login'=>Auth::check()]);
     } 
 
     public function store() {
@@ -41,12 +41,12 @@
 
     public function edit($publish_id) {
       $publish = DB::table('publisher')->find($publish_id);
-      return view('Publishers/show',
+      return view('Publisher/show',
         ['publishers'=>$publish,
          'title'=>'Publish Edit',
-         'show'=>false,'create'=>false,'edit'=>true]);
+         'show'=>false,'create'=>false,'edit'=>true,'login'=>Auth::check()]);
     }
-
+ 
     public function update($_,$publish_id) {
       $name = Input::get('name');    
       $country = Input::get('country');
@@ -56,12 +56,12 @@
       $item = ['name'=>$name,'country'=>$country,
                'founded'=>$founded,'genere'=>$genere];
       DB::table('publisher')->update($publish_id,$item);
-      return redirect('Publisher');
+      return redirect('/publishers');
     }
 
     public function destroy($prof_id) {  
       DB::table('publisher')->delete($prof_id);
-      return redirect('Publisher/index');
+      return redirect('Publishers/index');
     }
   }
 ?>

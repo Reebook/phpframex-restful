@@ -8,7 +8,7 @@
     public function index() {  
       return view('Books/index',
       ['books'=>DB::table('book')->get(),
-      'title'=>'Book List']);
+      'title'=>'Book List','login'=>Auth::check()]);
     }
   
     public function show($prof_id) {
@@ -16,16 +16,17 @@
       return view('Books/show',
         ['book'=>$prof,
          'title'=>'Book Detail',
-         'show'=>true,'create'=>false,'edit'=>false]);
+         'show'=>true,'create'=>false,'edit'=>false,
+         'login'=>Auth::check()]);
     }
 
     public function create() {
-      $prof = ['name'=>'','degree'=>'',
-               'email'=>'','phone'=>''];
+      $prof = ['titleName'=>'','copyright'=>'',
+               'edition'=>'','language'=>'','publisher'=>'','pages'=>'','author'=>''];
       return view('Books/show',
       ['title'=>'Book Create',
       'book'=>$prof,'courses'=>false,
-      'show'=>false,'create'=>true,'edit'=>false]);
+      'show'=>false,'create'=>true,'edit'=>false,'login'=>Auth::check()]);
   } 
 
     public function store() {
@@ -47,7 +48,8 @@
       return view('Books/show',
         ['book'=>$prof,
          'title'=>'Book Edit','courses'=>false,
-         'show'=>false,'create'=>false,'edit'=>true]);
+         'show'=>false,'create'=>false,'edit'=>true,
+         'login'=>Auth::check()]);
     }
 
     public function update($_,$prof_id) {

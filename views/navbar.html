@@ -1,0 +1,15 @@
+<nav>
+    <ul>
+      <li><a href="/books">Books</a></li>
+      <li><a href="/authors">Authors</a></li>
+      <li><a href="/publishers">publishers</a></li>    
+      {{#login}}
+      <a class="button" style="float: right" 
+         href="/logout" login >Logout</a>
+      {{/login}}
+      {{^login}}
+      <a class="button" style="float: right" 
+         href="/login" login >Login</a>
+      {{~login}}  
+    </ul> 
+   </nav>

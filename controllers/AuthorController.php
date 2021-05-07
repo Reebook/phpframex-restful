@@ -8,7 +8,7 @@
     public function index() {  
       return view('Author/index',
       ['author'=>DB::table('author')->get(),
-      'title'=>'Author List']);
+      'title'=>'Author List','login'=>Auth::check()]);
     }
 
     public function show($author_id) {
@@ -16,7 +16,8 @@
       return view('Author/show',
         ['author'=>$author,
          'title'=>'Author Detail',
-         'show'=>true,'create'=>false,'edit'=>false]);
+         'show'=>true,'create'=>false,'edit'=>false,
+         'login'=>Auth::check()]);
     }
 
     public function create() {
@@ -25,7 +26,8 @@
       return view('Author/show',
       ['title'=>'Author Create',
       'author'=>$author,
-      'show'=>false,'create'=>true,'edit'=>false]);
+      'show'=>false,'create'=>true,'edit'=>false,
+      'login'=>Auth::check()]);
     } 
 
     public function store() {
@@ -41,10 +43,11 @@
 
     public function edit($author_id) {
       $author = DB::table('author')->find($author_id);
-      return view('Authors/show',
+      return view('Author/show',
         ['author'=>$author,
          'title'=>'Author Edit',
-         'show'=>false,'create'=>false,'edit'=>true]);
+         'show'=>false,'create'=>false,'edit'=>true,
+         'login'=>Auth::check()]);
     }
 
     public function update($_,$author_id) {
