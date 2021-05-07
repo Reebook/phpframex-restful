@@ -153,7 +153,7 @@ class Route {
        $_REQUEST = simplexml_load_string(file_get_contents('php://input'));
 
 	if (isset($_REQUEST['_method']))
-	  $method =  $_REQUEST['_method'];
+	  $method = $_REQUEST['_method'];
 	
     self::$routes = preg_replace('/\/+/', '/', self::$routes);
 
@@ -310,6 +310,11 @@ function to_html($array) {
 
     $html .= '</table>';
     return $html;
+}
+
+function redirect($to = null, $status = 302, $headers = [], $secure = null) {
+  global $redirect;
+  $redirect = $to;
 }
 
 ?>
@@ -1043,26 +1048,6 @@ class Markdown {
 }
 
 ?><?php
-/**
- * Redirect Facade
- * @author  Armando Arce <armando.arce@gmail.com>
- */
-
-class Redirect {
-
-	static function to($to = null, $status = 302, $headers = [], $secure = null) {
-	    global $redirect;
-	    $redirect = $url;		
-	}
-}
-
-function redirect($to = null, $status = 302, $headers = [], $secure = null) {
-  global $redirect;
-  $redirect = $url;
-}
-
-?>
-<?php
 /**
  * View Facade
  * @author  Armando Arce <armando.arce@gmail.com>
