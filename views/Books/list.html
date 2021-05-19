@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="eleven column">
+    <h2>{{title}}</h2>
+    <br>
+    <table><thead>
+     <tr><th>title</th><th>copyright</th>
+         <th>edition</th><th>pages</th>
+         <th>language</th><th>author</th>
+         <th>publisher</th>
+         <th>Actions</th>
+       </tr>
+     </thead><tbody>
+     {{#books}}
+     <tr><td><a data-navigo href="books/show/{{id}}">{{titleName}}</a></td>
+     <td>{{copyright}}</td>
+     <td>{{edition}}</td>
+     <td>{{pages}}</td>      
+     <td>{{language}}</td>
+     <td>{{author}}</td>
+     <td>{{publisher}}</td>
+     <td>
+       <a class="button" href="/books/show/{{id}}" data-navigo>Show</a>
+       <a class="button" href="/books/edit/{{id}}" data-navigo>Edit</a>
+       <a class="button" href="/books/delete/{{id}}" data-navigo>Erase</a>
+       </td>
+       </tr>
+       {{/books}}</tbody>
+      </table>
+      <a class="button button-primary" href="/books/create" data-navigo>New</a>
+    </div>
+   </div>

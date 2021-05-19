@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="eleven column" style="margin-top: 10%">
+     <h2>{{title}}</h2>
+      {{#books}}
+      <form>
+        <label for="titleName">Title</label>
+        <input class="u-full-width" type="text" 
+          {{#show}} readonly {{/show}}
+           id="titleName" name="titleName" value="{{titleName}}"/>
+       
+       <div class="six columns">
+        <label for="edition">Edition</label>
+        <input class="u-full-width" type="text"
+           {{#show}} readonly {{/show}} 
+           id="edition" name="edition" value="{{edition}}"/>
+       </div>
+     
+       <div class="six columns">
+        <label for="copyright">copyright</label>
+        <input class="u-full-width" type="text"
+           {{#show}} readonly {{/show}}
+           id="copyright" name="copyright" value="{{copyright}}"/>
+       </div>
+       <div class="six columns">
+        <label for="language">language</label>
+        <input class="u-full-width" type="text"
+          {{#show}} readonly {{/show}}
+          id="language" name="language" value="{{language}}"/>
+       </div>
+       <div class="six columns">
+         <label for="pages">pages</label>
+         <input class="u-full-width" type="text"
+           {{#show}} readonly {{/show}}
+           id="pages" name="pages" value="{{pages}}"/>
+        </div>
+        <div class="six columns">
+         <label for="publisher">publisher</label>
+         <input class="u-full-width" type="text"
+           {{#show}} readonly {{/show}}
+           id="publisher" name="publisher" value="{{publisher}}"/>
+        </div>
+        <div class="six columns">
+         <label for="author">author</label>
+         <input class="u-full-width" type="text"
+           {{#show}} readonly {{/show}}
+           id="author" name="author" value="{{author}}"/>
+        </div>
+       <a class="button button-primary" href="/books"
+         data-navigo>Back</a>
+      {{#edit}}
+        <a class="button button-primary" style="float: right" 
+          data-navigo href="/books/update/{{id}}">Update</a>
+      {{/edit}}
+      {{#create}}
+       <input type="hidden" name="_method" value="PUT">
+        <a class="button button-primary" style="float: right" 
+          data-navigo href="/books/store">Create</a>
+      {{/create}}
+      {{/books}}
+     </form>
+    </div>
+   </div>

@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="eleven column">
+     <h2>{{title}}</h2>
+      {{#authors}}
+      <form>
+        <div class="row">
+            <div class="six columns">
+             <label for="nameInput">Name</label>
+             <input class="u-full-width" id="name" type="text"             
+                name="name" value="{{name}}"/>
+            </div>
+            <div class="six columns">
+             <label for="degreeInput">nationality</label>
+             <input class="u-full-width" type="text"  id="nationality"               
+                name="nationality" value="{{nationality}}"/>
+            </div>
+           </div>
+           <div class="row">
+            <div class="six columns">
+             <label for="emailInput">Birth</label>
+             <input class="u-full-width" type="text"  id="birth"              
+                name="birth" value="{{birth}}"/>
+            </div>
+            <div class="six columns">
+             <label for="fields">fields</label>
+             <input class="u-full-width" type="text" id="fields"                 
+               name="fields" value="{{fields}}"/>
+            </div>
+       <a class="button button-primary" href="/authors"
+         data-navigo>Back</a>
+      {{#edit}}
+        <a class="button button-primary" style="float: right" 
+          data-navigo href="/authors/update/{{id}}">Update</a>
+      {{/edit}}
+      {{#create}}
+       <input type="hidden" name="_method" value="PUT">
+        <a class="button button-primary" style="float: right" 
+          data-navigo href="/authors/store">Create</a>
+      {{/create}}
+      {{/authors}}
+     </form>
+     
+    </div>
+   </div>

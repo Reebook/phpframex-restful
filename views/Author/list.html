@@ -1,0 +1,23 @@
+<div class="row">
+    <div>
+      <h2>{{title}}</h2>
+      <table><thead>
+       <tr><th>Name</th><th>nationality</th><th>birth</th>
+           <th>fields</th><th>Actions</th></th></tr>
+       </thead><tbody>
+       {{#authors}}
+       <tr><td>{{name}}</td>
+       <td>{{nationality}}</td>
+       <td>{{birth}}</td>
+       <td>{{fields}}</td>
+       <td>
+       <a class="button" href="/authors/show/{{id}}" data-navigo>Show</a>
+       <a class="button" href="/authors/edit/{{id}}" data-navigo>Edit</a>
+       <a class="button" href="/authors/delete/{{id}}" data-navigo>Erase</a>
+       </td>
+       </tr>
+       {{/authors}}</tbody>
+      </table>
+      <a class="button button-primary" href="/authors/create" data-navigo>New</a>
+    </div>
+   </div>
